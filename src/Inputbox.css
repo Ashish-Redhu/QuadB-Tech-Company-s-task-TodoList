@@ -1,0 +1,12 @@
+.inputbox{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+.inputbox .input{
+    margin: auto 10px !important;
+    background-color: white;
+}
+.inputbox .button{
+    margin: 10px auto !important;
+}
