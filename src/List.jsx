@@ -46,11 +46,14 @@ export default function List({ arr, deleteElement, editElement }) {
                              </form>
                           </div>
                        ):(
-                        <>
-                          <ListItemText primary={element} className={isDone ? 'trueClass' : 'falseClass'}/>
-                          <Button onClick={() => deleteElement(index)} type="submit" variant="contained" className="button">Delete</Button>
-                          <Button onClick={() => handleEditClick(index, element)} type="submit" variant="contained" className="button">Edit</Button>
-                        </>
+                        <div className="textAndButtons">
+                          <ListItemText primary={element} className={`text ${isDone ? 'trueClass' : 'falseClass'}`} />
+                          <div className="buttons">
+                                <Button onClick={() => deleteElement(index)} type="submit" variant="contained" className="button">Delete</Button>
+                                <Button onClick={() => handleEditClick(index, element)} type="submit" variant="contained" className="button">Edit</Button>
+                          </div>
+                              
+                        </div>
                        )}
                    </ListItem>
                 ))}
