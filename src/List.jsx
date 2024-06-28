@@ -4,7 +4,10 @@ import React, { useState } from "react";
 import { List as MUIList, ListItem, ListItemText, ListItemIcon, Divider, Avatar } from '@mui/material';
 import {TextField} from "@mui/material";
 import {Button} from "@mui/material";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
 import "./List.css"
+import { red } from "@mui/material/colors";
 export default function List({ arr, deleteElement, editElement }) {
     const [editIndex, setEditIndex] = useState(null);
     const [editText, setEditText] = useState("");
@@ -47,12 +50,11 @@ export default function List({ arr, deleteElement, editElement }) {
                           </div>
                        ):(
                         <div className="textAndButtons">
-                          <ListItemText primary={element} className={`text ${isDone ? 'trueClass' : 'falseClass'}`} />
-                          <div className="buttons">
-                                <Button onClick={() => deleteElement(index)} type="submit" variant="contained" className="button">Delete</Button>
-                                <Button onClick={() => handleEditClick(index, element)} type="submit" variant="contained" className="button">Edit</Button>
-                          </div>
-                              
+                                <ListItemText primary={element} className={`text ${isDone ? 'trueClass' : 'falseClass'}`} />
+                                <div className="buttons">
+                                    <Button onClick={() => deleteElement(index)} type="submit" variant="contained" className="button" startIcon={<DeleteIcon />}> </Button>
+                                    <Button onClick={() => handleEditClick(index, element)} type="submit" variant="contained" className="button" startIcon={<EditIcon />}> </Button>
+                                </div>      
                         </div>
                        )}
                    </ListItem>

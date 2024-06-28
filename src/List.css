@@ -12,6 +12,8 @@
     margin: 10px 10px !important;
 }
 
+
+/* Mark as done functionality */
 .trueClass{
     text-decoration: line-through;
     color: green;
