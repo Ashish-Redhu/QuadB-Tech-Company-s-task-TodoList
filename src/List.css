@@ -11,3 +11,12 @@
 .editform .button{
     margin: 10px 10px !important;
 }
+
+.trueClass{
+    text-decoration: line-through;
+    color: green;
+}
+.falseClass{
+    text-decoration: none;
+    color: white;
+}

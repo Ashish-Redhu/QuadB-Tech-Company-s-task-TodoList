@@ -9,6 +9,12 @@ export default function List({ arr, deleteElement, editElement }) {
     const [editIndex, setEditIndex] = useState(null);
     const [editText, setEditText] = useState("");
 
+    
+    const [isDone, setDone] = useState(false);
+ 
+    const handleDone = ()=>{
+        setDone(!isDone);
+    }
     const handleEditClick = (index, text) => {
         setEditIndex(index);
         setEditText(text);
@@ -26,6 +32,9 @@ export default function List({ arr, deleteElement, editElement }) {
 
     return (
         <div className="list">
+            <Button onClick={handleDone} type="submit" variant="contained" className="button">
+                {isDone ? 'Undo' : 'Mark as Done'}
+            </Button>
             <MUIList>
                 {arr.map((element, index)=>(
                    <ListItem key={index} className="task">
@@ -38,7 +47,7 @@ export default function List({ arr, deleteElement, editElement }) {
                           </div>
                        ):(
                         <>
-                          <ListItemText primary={element}/>
+                          <ListItemText primary={element} className={isDone ? 'trueClass' : 'falseClass'}/>
                           <Button onClick={() => deleteElement(index)} type="submit" variant="contained" className="button">Delete</Button>
                           <Button onClick={() => handleEditClick(index, element)} type="submit" variant="contained" className="button">Edit</Button>
                         </>
